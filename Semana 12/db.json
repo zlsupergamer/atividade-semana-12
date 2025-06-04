@@ -1,0 +1,11 @@
+{
+  "filmes": [
+    {
+      "id": 1,
+      "titulo": "A Bruxa",
+      "diretor": "Robert Eggers",
+      "ano": 2015,
+      "sinopse": "Uma família do século 17 enfrenta forças misteriosas na floresta."
+    }
+  ]
+}

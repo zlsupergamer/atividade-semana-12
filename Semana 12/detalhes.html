@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Detalhes do Filme</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Detalhes do Filme</h1>
+  <div id="detalhes"></div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get("id");
+
+    fetch(`http://localhost:3000/filmes/${id}`)
+      .then(res => res.json())
+      .then(filme => {
+        const div = document.getElementById("detalhes");
+        div.innerHTML = `
+          <h2>${filme.titulo}</h2>
+          <p><strong>Diretor:</strong> ${filme.diretor}</p>
+          <p><strong>Ano:</strong> ${filme.ano}</p>
+          <p><strong>Sinopse:</strong> ${filme.sinopse}</p>
+          <a href="index.html">Voltar</a>
+        `;
+      });
+  </script>
+</body>
+</html>

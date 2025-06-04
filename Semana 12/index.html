@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Terrorflix</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Bem-vindo ao <span style="color: red;">Terrorflix</span></h1>
+  <a href="cadastro_filme.html">Cadastrar novo filme</a>
+  <div id="lista"></div>
+
+  <script>
+    fetch("http://localhost:3000/filmes")
+      .then(res => res.json())
+      .then(data => {
+        const lista = document.getElementById("lista");
+        data.forEach(filme => {
+          lista.innerHTML += `
+            <div class="filme-card">
+              <h2>${filme.titulo}</h2>
+              <p>${filme.ano} - ${filme.diretor}</p>
+              <a href="detalhes.html?id=${filme.id}">Ver detalhes</a>
+            </div>
+          `;
+        });
+      });
+  </script>
+</body>
+</html>
